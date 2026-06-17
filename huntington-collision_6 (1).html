@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Huntington Collision - Expert Auto Body Repair | Huntington Station, NY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-navy: #1a1f3a;
+            --secondary-steel: #3d4563;
+            --accent-amber: #d97706;
+            --accent-light: #fbbf24;
+            --dark-text: #1a1f3a;
+            --light-text: #f3f4f6;
+            --border-subtle: #e5e7eb;
+            --success-green: #059669;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--dark-text);
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary-navy);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-amber);
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin: 0 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-amber);
+        }
+
+        .phone-cta {
+            background: var(--accent-amber);
+            color: var(--primary-navy);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .phone-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-steel) 100%);
+            color: var(--light-text);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(217, 119, 6, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .stars {
+            color: var(--accent-amber);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-amber);
+            color: var(--primary-navy);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-amber);
+            padding: 1rem 2rem;
+            border: 2px solid var(--accent-amber);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-amber);
+            color: var(--primary-navy);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: #f9fafb;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-amber);
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-style: italic;
+        }
+
+        .testimonial-stars {
+            color: var(--accent-amber);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 5rem 2rem;
+            background: var(--primary-navy);
+            color: var(--light-text);
+        }
+
+        .why-choose .section-title {
+            color: var(--light-text);
+        }
+
+        .why-choose .section-subtitle {
+            color: rgba(243, 244, 246, 0.8);
+        }
+
+        .features-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-amber);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: rgba(243, 244, 246, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: #f9fafb;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .contact-value a {
+            color: var(--accent-amber);
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-navy);
+            color: var(--light-text);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(217, 119, 6, 0.2);
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav a {
+                display: none;
+            }
+
+            .phone-cta {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services, .testimonials, .why-choose, .contact-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">AA Huntington Collision</div>
+        <div>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="tel:6314920123" class="phone-cta">Call Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="rating-badge">
+                <span class="stars">★★★★★</span>
+                <span>4.8 (133 reviews)</span>
+            </div>
+            <h1>Expert Auto Body Repair You Can Trust</h1>
+            <p>Professional collision repair, dent removal, and restoration services. Get your vehicle back to perfect condition.</p>
+            <div class="cta-buttons">
+                <a href="tel:6314920123" class="btn-primary">Call (631) 492-0123</a>
+                <a href="#contact" class="btn-secondary">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive auto repair and restoration services for all vehicle types</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Auto Body Repair</h3>
+                <p>Professional collision repair, frame straightening, and structural restoration. We handle everything from minor fender benders to major accident damage.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Dent Removal</h3>
+                <p>Advanced dent removal techniques that restore your vehicle's appearance without compromising paint. Quick turnaround times.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Towing Service</h3>
+                <p>Fast and reliable towing services for accidents and breakdowns. Available to bring your damaged vehicle safely to our shop.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💎</div>
+                <h3>Detailing</h3>
+                <p>Complete vehicle detailing services to prepare your car after repairs. Premium finishing touches for a showroom shine.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Full Mechanic Shop</h3>
+                <p>Comprehensive mechanical repairs and maintenance. From engine work to brake service to routine maintenance, we handle it all with precision and care.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚙</div>
+                <h3>Car Rental</h3>
+                <p>Convenient rental vehicles while yours is being repaired. Stay mobile and keep your life on track during collision repairs.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✅</div>
+                <h3>Inspections</h3>
+                <p>Thorough vehicle inspections including NYS safety inspections, pre-purchase inspections, and damage assessments. Professional evaluations you can trust.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p class="section-subtitle">See why customers trust us with their vehicles</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Such a great body shop! I always come here now because they treat me with respect and are completely honest. This is the only place on Long Island where I know I won't get scammed."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— Nafeesa Awan</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Mike the owner was WONDERFUL. I got into a bad car accident and he took care of everything. He made everything easy for me and I wasn't worried at all. He was so nice and professional and always kept in contact about my car."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— Sara Argay</div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Mike and his team went above and beyond, were fast, efficient, and incredibly reasonable with pricing. Mike is one of the nicest guys I could have asked to have met after wrecking my car."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— Kimberly Bichko</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Sal and Hamza are the best kind of representatives you want to deal with. They are understanding, fair, and consistently pull through with quality work. Everything was explained clearly, done on time, and with great attention to detail."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— Kevin Rodriguez & Ameera H</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Our car looks like new after Mike's repair. We were in good hands throughout the repair process while being kept up to date. The work was done quickly and professionally."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— J Liba</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Fair quote and quick turnaround time. My front bumper and fog light needed to be fixed and it looks great now. They cleaned my car and headlights too. Great people here, very trustworthy."</p>
+                <div style="font-size: 0.9rem; font-weight: 600; margin-top: 1rem; color: #555;">— Kelsey M</div>
+            </div>
+        </div>
+    </section>
+
+<!-- Team Section -->
+    <section class="services" style="background: white; padding: 5rem 2rem;">
+        <h2 class="section-title">Meet the Team</h2>
+        <p class="section-subtitle">Expert technicians dedicated to your vehicle's restoration</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">👨‍💼</div>
+                <h3>Anas</h3>
+                <p><strong>Owner</strong></p>
+                <p>Leading AA Huntington Collision with expertise, integrity, and dedication to customer satisfaction. Committed to honest estimates, fair pricing, and genuine care for every customer.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">👨‍💼</div>
+                <h3>Akram</h3>
+                <p><strong>Owner</strong></p>
+                <p>Co-owner driving the vision of excellence at AA Huntington Collision. Focused on quality workmanship, customer service, and building a trusted reputation in the community.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Hamza</h3>
+                <p><strong>Specialist Technician</strong></p>
+                <p>Specializes in complex repairs, particularly on luxury vehicles. Customers trust him for his expertise, fair pricing, and commitment to excellence.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">👨‍💼</div>
+                <h3>Zee</h3>
+                <p><strong>Partner</strong></p>
+                <p>Co-partner bringing diagnostic expertise and mechanical excellence. Known for his friendly personality, quick problem-solving, and ability to handle complex issues. Thorough explanations and efficient service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <h2 class="section-title">Why Choose Huntington Collision?</h2>
+        <p class="section-subtitle">Experience the difference quality workmanship makes</p>
+        
+        <div class="features-list">
+            <div class="feature-item">
+                <div class="feature-icon">⭐</div>
+                <div class="feature-text">
+                    <h4>Honest & Fair Pricing</h4>
+                    <p>Transparent estimates with no hidden fees. Customers save hundreds by choosing us over competitors who overcharge.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">
+                    <h4>Lightning-Fast Turnaround</h4>
+                    <p>Same-day service on many repairs. Back on the road in days, not weeks—without sacrificing quality.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">
+                    <h4>You Won't Get Scammed</h4>
+                    <p>"The only place on Long Island where I know I won't get scammed." We're honest about what's needed and what's not.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <div class="feature-text">
+                    <h4>Showroom Quality Results</h4>
+                    <p>Cars come back looking brand new. Detailed finishes, perfect paint, immaculate interiors—every time.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <div class="feature-text">
+                    <h4>Personal Communication</h4>
+                    <p>Mike and the team keep you updated every step of the way. No surprises, no ignored calls—just honest updates.</p>
+                </div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🚗</div>
+                <div class="feature-text">
+                    <h4>Insurance Coordination</h4>
+                    <p>We handle all the paperwork. Work directly with your insurance company so you don't have to.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Get Your Free Quote Today</h2>
+            <p class="section-subtitle">Contact us for fast, friendly service</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-label">📞 Phone</div>
+                    <div class="contact-value"><a href="tel:6314920123">(631) 492-0123</a></div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">📍 Location</div>
+                    <div class="contact-value">99 E Jericho Tpke<br>Huntington Station, NY 11746</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-label">🕐 Hours</div>
+                    <div class="contact-value">Open Daily<br>Closes 6 PM</div>
+                </div>
+            </div>
+            
+            <a href="tel:6314920123" class="btn-primary">Call Now for Estimate</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AA Huntington Collision. All rights reserved.</p>
+        <p>Professional Auto Body Repair • Huntington Station, NY</p>
+    </footer>
+</body>
+</html>
